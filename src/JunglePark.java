@@ -37,7 +37,10 @@ public class JunglePark extends PApplet {
         listGUI = new ArrayList<Displayable>(); // create the listGUI ArrayList that would store all the
         // graphic objects (animals and buttons) that would be drawn on the display window
 
-
+        // Add the create animal buttons to the screen
+        listGUI.add(new AddAnimalButton("Tiger", 43, 16, this));
+        listGUI.add(new AddAnimalButton("Deer", 129, 16, this));
+        listGUI.add(new ClearButton(215, 16, this));
     }
 
     /**
@@ -106,7 +109,6 @@ public class JunglePark extends PApplet {
                 }
                 break;
             case 'D':
-            case 'd':
                 listGUI.add(new Deer(this));
                 break;
         }
@@ -117,7 +119,15 @@ public class JunglePark extends PApplet {
      * Removes only the Animals from the ArrayList listGUI
      */
     public void clear() {
-        // TODO: IMPLEMENT THIS METHOD
+        ArrayList<Displayable> animalsToRemove = new ArrayList<>();
+
+        for (Displayable graphicsObject : listGUI) {
+            if (graphicsObject instanceof Animal) {
+                animalsToRemove.add(graphicsObject);
+            }
+        }
+
+        listGUI.removeAll(animalsToRemove);
     }
 
     /**
