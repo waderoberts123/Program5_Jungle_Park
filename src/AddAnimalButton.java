@@ -1,3 +1,13 @@
+/*
+  Course: 		   CS300 - Summer 2020
+  Program:		   Program 5 Jungle Park
+  Name: 		   Wade Roberts
+  Wisc Email: 	   wroberts5@wisc.edu
+  Web Sources:     None
+  Personal Help:   None
+ */
+
+
 public class AddAnimalButton extends Button {
 
     private String type;
@@ -8,6 +18,9 @@ public class AddAnimalButton extends Button {
         this.label = "Add " + type;
     }
 
+    /**
+     * Adds an animal based on the button type
+     */
     @Override
     public void mousePressed() {
         if (isMouseOver()) {

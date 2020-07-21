@@ -1,3 +1,12 @@
+/*
+  Course: 		   CS300 - Summer 2020
+  Program:		   Program 5 Jungle Park
+  Name: 		   Wade Roberts
+  Wisc Email: 	   wroberts5@wisc.edu
+  Web Sources:     None
+  Personal Help:   None
+ */
+
 public class Deer extends Animal {
 
     private static final int SCAN_RANGE = 175; // scan range area to check for a threat in the neighborhood
@@ -16,8 +25,11 @@ public class Deer extends Animal {
         nextID++; // Increment the ID field each time a Deer object is created
     }
 
-    // Checks if there is a threat (a Tiger for instance) at the neighborhood
-    // scanRange is an integer that represents the range of the area to be scanned around the animal
+    /**
+     * Checks if there is a threat (a Tiger for instance) at the neighborhood
+     * @param scanRange represents the range of the area to be scanned around the animal
+     * @return true if a threat (tiger) is near the deer
+     */
     public boolean scanForThreat(int scanRange) {
         for (Displayable graphicsObject : park.listGUI) {
             if (graphicsObject instanceof Tiger) {
@@ -30,7 +42,9 @@ public class Deer extends Animal {
         return false;
     }
 
-    // Defines the behavior of a Deer object in the Jungle park
+    /**
+     * Defines the behavior of a Deer object in the Jungle park
+     */
     @Override
     public void action() {
         if (scanForThreat(SCAN_RANGE)) {

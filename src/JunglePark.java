@@ -3,8 +3,8 @@
   Program:		   Program 5 Jungle Park
   Name: 		   Wade Roberts
   Wisc Email: 	   wroberts5@wisc.edu
-  Web Sources:     TODO
-  Personal Help:   TODO
+  Web Sources:     None
+  Personal Help:   None
  */
 
 import java.util.ArrayList;
@@ -62,8 +62,9 @@ public class JunglePark extends PApplet {
         this.image(backgroundImage, this.width / 2, this.height / 2); // draw the background image at
         // the center of the display window
         // traverse the ArrayList
-        for (int i = 0; i < listGUI.size(); i++)
-            listGUI.get(i).draw();
+        for (Displayable displayable : listGUI) {
+            displayable.draw();
+        }
     }
 
     /**
@@ -72,9 +73,9 @@ public class JunglePark extends PApplet {
     @Override
     public void mousePressed() {
         // traverse listGUI and call mousePressed() of the first graphical object which mouse is over
-        for (int i = 0; i < listGUI.size(); i++)
-            if (listGUI.get(i).isMouseOver()) {
-                listGUI.get(i).mousePressed();
+        for (Displayable displayable : listGUI)
+            if (displayable.isMouseOver()) {
+                displayable.mousePressed();
                 break;
             }
     }
@@ -85,8 +86,9 @@ public class JunglePark extends PApplet {
     @Override
     public void mouseReleased() {
         // traverse listGUI and call mouseReleased() method defined for every graphic object
-        for (int i = 0; i < listGUI.size(); i++)
-            listGUI.get(i).mouseReleased();
+        for (Displayable displayable : listGUI) {
+            displayable.mouseReleased();
+        }
     }
 
     /**
@@ -133,6 +135,7 @@ public class JunglePark extends PApplet {
     /**
      * This main method starts the application
      * NO OTHER CODE IS NEEDED IN THIS METHOD
+     *
      * @param args
      */
     public static void main(String[] args) {
